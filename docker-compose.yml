@@ -1,12 +1,8 @@
 services:
   xray:
-    image: teddysun/xray:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
-
     ports:
       - "10000:10000"
-
-    volumes:
-      - ./config.json:/etc/xray/config.json:ro
-
-    command: ["xray", "run", "-config", "/etc/xray/config.json"]
