@@ -1,8 +1,0 @@
-services:
-  xray:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - "10000:10000"
