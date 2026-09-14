@@ -18,7 +18,7 @@
       "streamSettings": {
         "network": "xhttp",
         "xhttpSettings": {
-          "path": "/vpn",
+          "path": "/vpn"
         }
       }
     }
