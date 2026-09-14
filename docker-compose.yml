@@ -1,0 +1,12 @@
+services:
+  xray:
+    image: teddysun/xray:latest
+    restart: unless-stopped
+
+    ports:
+      - "10000:10000"
+
+    volumes:
+      - ./config.json:/etc/xray/config.json:ro
+
+    command: ["xray", "run", "-config", "/etc/xray/config.json"]
