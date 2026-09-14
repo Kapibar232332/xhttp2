@@ -17,10 +17,8 @@
       },
       "streamSettings": {
         "network": "xhttp",
-        "security": "none",
         "xhttpSettings": {
           "path": "/vpn",
-          "mode": "stream-up"
         }
       }
     }
