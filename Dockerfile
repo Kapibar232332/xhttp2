@@ -1,14 +1,12 @@
-FROM debian:bookworm-slim
+FROM alpine:3.20
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl unzip ca-certificates && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache curl unzip ca-certificates
 
-RUN curl -L https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip \
-    -o /tmp/xray.zip && \
-    unzip /tmp/xray.zip -d /usr/local/bin && \
-    chmod +x /usr/local/bin/xray && \
-    rm /tmp/xray.zip
+RUN curl -L https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-linux-64.zip \
+    -o /tmp/xray.zip \
+    && unzip /tmp/xray.zip -d /usr/local/bin \
+    && chmod +x /usr/local/bin/xray \
+    && rm /tmp/xray.zip
 
 COPY config.json /etc/xray/config.json
 
